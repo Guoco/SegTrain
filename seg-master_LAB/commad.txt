@@ -1,0 +1,7 @@
+python train.py --weights weights/yolov5s-seg.pt --cfg models/yolov5s-seg.yaml --data data/custom.yaml --epoch 3 --batch-size 25 --device 0 --workers 4 --name shape_yolov5s
+
+--hyp data/hyps/hyp.scratch-low.yaml \
+
+python val.py --weights runs/train-seg/shape_yolov5s/weights/best.pt --data data/custom.yaml --batch-size 16 --device 0 --name shape_yolov5s
+
+python predict.py --weights runs/train-seg/shape_yolov5s8/weights/best.pt --source dataset/custom_dataset/images/test --data data/custom.yaml --device 0 --name shape_yolov5s --line-thickness 1 --hide-labels --hide-conf
